@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-3.2.1.min.js"></script>   
+    </head>
+    <body>
+        <div id="uno">NADA</div>
+        <input type="text" id="nombre">
+        <button id="boton">Enviar</button>  
+        <script>
+            //console.log("Hola Mundo");
+            //Vamos a programar el boton
+            $("#boton").click(function(){
+                //La lógica va aquí del clickeo del botón
+                //Aqui vamos a someter en envio a AJAX
+                $.ajax({
+                   type:'get',
+                   url:'Saludar',                    
+                   data:{
+                       gato:$("#nombre").val()
+                   },
+                   //Lo que nos regresa
+                   success:function(respuesta){//(respuesta) = Es el response del Servlet
+                       $("#uno").html(respuesta);
+                   }
+               });
+            }
+                    );
+        </script>
+        
+           
+    </body>
+</html>
